@@ -1,3 +1,6 @@
 [submodule "blupimania"]
 	path = blupimania
 	url = ../blupimania
+[submodule "blupimania-data"]
+	path = blupimania-data
+	url = ../blupimania-data
