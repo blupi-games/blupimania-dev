@@ -1,0 +1,3 @@
+[submodule "blupimania"]
+	path = blupimania
+	url = ../blupimania
