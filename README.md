@@ -33,7 +33,7 @@ If you prefer and if it's available, you can try to install the game via your
 distribution package manager instead of downloading the AppImage. If the latest
 version is not available for you, the AppImage is the primary choice.
 
-[![Packaging status](https://repology.org/badge/vertical-allrepos/planetblupi.svg)](https://repology.org/project/planetblupi/versions)
+[![Packaging status](https://repology.org/badge/vertical-allrepos/blupimania.svg)](https://repology.org/project/blupimania/versions)
 
 ## Prepare environment for building
 
