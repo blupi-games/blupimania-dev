@@ -99,6 +99,10 @@ if (NOT BUILD_JS)
   set (HAS_SDLIMAGE ON)
   set (SDLIMAGE_VER 2.6.2)
   DLEXT (https://github.com/libsdl-org/SDL_image/releases/download/release-${SDLIMAGE_VER}/SDL2_image-${SDLIMAGE_VER}.tar.gz SDL2_image-${SDLIMAGE_VER}.tar.gz)
+
+  set (HAS_WEBP ON)
+  set (WEBP_VER 1.3.2)
+  DLEXT (https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-${WEBP_VER}.tar.gz libwebp-${WEBP_VER}.tar.gz)
 endif ()
 
 if (BUILD_LINUX)
@@ -148,6 +152,9 @@ if (HAS_OGG)
 endif ()
 if (HAS_VORBIS)
   message (STATUS " * libvorbis (${VORBIS_VER})")
+endif ()
+if (HAS_WEBP)
+  message (STATUS " * libweb (${WEBP_VER})")
 endif ()
 
 set (blupimania_DEPS)
@@ -411,6 +418,41 @@ if (HAS_PULSEAUDIO)
   set (blupimania_DEPS ${blupimania_DEPS} libpulse_Project)
 endif ()
 
+##########
+## libwebp
+##########
+
+if (HAS_WEBP)
+  ExternalProject_Add (libwebp_Project
+    URL ${CMAKE_CURRENT_SOURCE_DIR}/externals/libwebp-${WEBP_VER}.tar.gz
+    PREFIX ${CMAKE_BINARY_DIR}
+    CONFIGURE_COMMAND ${CMD} ./configure
+      --prefix=${CMAKE_BINARY_DIR}
+      --disable-shared
+      --enable-static
+      --enable-libwebpdecoder
+      --enable-libwebpextras
+      --disable-sse4.1
+      --disable-sse2
+      --disable-neon
+      --disable-neon-rtcd
+      --disable-threading
+      --disable-gl
+      --disable-sdl
+      --disable-png
+      --disable-jpeg
+      --disable-tiff
+      --disable-gif
+      --disable-wic
+    BUILD_COMMAND ${CMD} make
+    INSTALL_COMMAND ${CMD} make install INSTALLDIR=${CMAKE_BINARY_DIR}
+    BUILD_IN_SOURCE 1
+    INSTALL_DIR ${CMAKE_BINARY_DIR}
+  )
+
+  set (blupimania_DEPS ${blupimania_DEPS} libwebp_Project)
+endif ()
+
 #######
 ## SDL2
 #######
@@ -503,13 +545,13 @@ if (HAS_SDLIMAGE)
       --disable-xcf
       --disable-xpm
       --disable-xv
-      --disable-webp
+      --enable-webp
       --disable-webp-shared
     BUILD_COMMAND ${CMD} make
     INSTALL_COMMAND ${CMD} make install
     BUILD_IN_SOURCE 1
     INSTALL_DIR ${CMAKE_BINARY_DIR}
-    DEPENDS SDL2_Project libpng_Project
+    DEPENDS SDL2_Project libpng_Project libwebp_Project
   )
 
   set (blupimania_DEPS ${blupimania_DEPS} SDL2_image_Project)
