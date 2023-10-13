@@ -134,6 +134,7 @@ _Blupimania_ and all resource files are licensed to the GPLv3+ license.
 | [libpulse][16]   | LGPLv2.1       | API for the PulseAudio network-capable sound server program                                 |
 | [libsndfile][23] | LGPLv3         | a C library for reading and writing files containing sampled sound                          |
 | [libvorbis][22]  | own license    | a free and open-source software project headed by the Xiph.Org Foundation                   |
+| [libwebp][24]    | google license | a modern image format that provides superior lossless and lossy compression for web images  |
 | [SDL2][18]       | zlib license   | a cross-platform software library designed to provide a HAL to computer multimedia hardware |
 | [SDL2_image][19] | zlib license   | an image loading library that is used with the SDL library                                  |
 | [SDL2_mixer][20] | zlib license   | a sound mixing library that is used with the SDL library                                    |
@@ -157,3 +158,4 @@ _Blupimania_ and all resource files are licensed to the GPLv3+ license.
 [21]: https://zlib.net/
 [22]: https://xiph.org/downloads/
 [23]: http://www.mega-nerd.com/libsndfile/
+[24]: https://developers.google.com/speed/webp
