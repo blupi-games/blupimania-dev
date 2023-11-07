@@ -69,7 +69,7 @@ endmacro (DLEXT)
 
 if (NOT BUILD_JS)
   set (HAS_SDLMIXER ON)
-  set (SDLMIXER_VER 2.6.2)
+  set (SDLMIXER_VER 2.6.3)
   DLEXT (https://github.com/libsdl-org/SDL_mixer/releases/download/release-${SDLMIXER_VER}/SDL2_mixer-${SDLMIXER_VER}.tar.gz SDL2_mixer-${SDLMIXER_VER}.tar.gz)
 
   set (HAS_ZLIB ON)
@@ -89,15 +89,15 @@ if (NOT BUILD_JS)
   DLEXT (http://downloads.xiph.org/releases/ogg/libogg-${OGG_VER}.tar.xz libogg-${OGG_VER}.tar.xz)
 
   set (HAS_VORBIS ON)
-  set (VORBIS_VER 1.3.6)
+  set (VORBIS_VER 1.3.7)
   DLEXT (http://downloads.xiph.org/releases/vorbis/libvorbis-${VORBIS_VER}.tar.xz libvorbis-${VORBIS_VER}.tar.xz)
 
   set (HAS_SDL ON)
-  set (SDL_VER 2.26.1)
+  set (SDL_VER 2.28.5)
   DLEXT (https://www.libsdl.org/release/SDL2-${SDL_VER}.tar.gz SDL2-${SDL_VER}.tar.bz2)
 
   set (HAS_SDLIMAGE ON)
-  set (SDLIMAGE_VER 2.6.2)
+  set (SDLIMAGE_VER 2.6.3)
   DLEXT (https://github.com/libsdl-org/SDL_image/releases/download/release-${SDLIMAGE_VER}/SDL2_image-${SDLIMAGE_VER}.tar.gz SDL2_image-${SDLIMAGE_VER}.tar.gz)
 
   set (HAS_WEBP ON)
@@ -328,6 +328,7 @@ if (HAS_VORBIS)
       --prefix=${CMAKE_BINARY_DIR}
       --disable-shared
       --enable-static
+      --disable-oggtest
     BUILD_COMMAND ${CMD} make
     INSTALL_COMMAND ${CMD} make install INSTALLDIR=${CMAKE_BINARY_DIR}
     BUILD_IN_SOURCE 1
