@@ -323,6 +323,7 @@ endif ()
 if (HAS_VORBIS)
   ExternalProject_Add (libvorbis_Project
     URL ${CMAKE_CURRENT_SOURCE_DIR}/externals/libvorbis-${VORBIS_VER}.tar.xz
+    PATCH_COMMAND patch -p1 < ${CMAKE_CURRENT_SOURCE_DIR}/externals/patches/libvorbis-${VORBIS_VER}.patch
     PREFIX ${CMAKE_BINARY_DIR}
     CONFIGURE_COMMAND ${CMD} ./configure
       --prefix=${CMAKE_BINARY_DIR}
