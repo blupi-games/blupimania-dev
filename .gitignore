@@ -1,4 +1,5 @@
 .directory
+.DS_Store
 .kdev4/
 externals/
 [Bb]uild/
