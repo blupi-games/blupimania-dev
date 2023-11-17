@@ -25,7 +25,7 @@ standalone, the installation is provided via an [NSIS][2] installer.
 
 > Note that the `DMG` bundling and the [NSIS][2] building is directly provided
 > by [CMake][6]. In the case of [AppImage][1], it's handled by [CMake][6] too
-> but via a custom `.cmake` file available in the `planetblupi/cmake` directory.
+> but via a custom `.cmake` file available in the `blupimania/cmake` directory.
 
 ## Linux packages
 
